@@ -88,3 +88,4 @@ The API calls are capped at 250 requests. If this limit is reached, no further A
 
 ## NOTE:
 The query part is not 100% complete yet, and is currently very basic. In the future, I will consdier linking it to an LLM to answer questions about the data more accurately. I did not want to include it in the initial version because I want to focus on scraping and API calling first.
+# halal-stock
