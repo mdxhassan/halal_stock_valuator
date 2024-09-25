@@ -1,9 +1,5 @@
 import pandas as pd
 
-data = input("Enter name of file to query: ")
-
-df = pd.read_csv(data)
-
 def display_instructions(df):
     # Extract unique options from the DataFrame
     tickers = ', '.join(df['Ticker'].unique())
@@ -36,6 +32,7 @@ def display_instructions(df):
 
 # Main loop to accept user queries
 def query_loop(df):
+    df = pd.read_csv(df)
     print(display_instructions(df))
     while True:
         query = input("Ask your question (type 'exit' to quit): ")
@@ -45,7 +42,7 @@ def query_loop(df):
 
         # 1. How many halal stocks are there, give me the company names and tickers?
         if "how many halal stocks" in query.lower() or "halal stocks" in query.lower():
-            halal_companies = df[df['Halal Status'] == 'Halal']
+            halal_companies = df[df['Halal Status'] == 'Comfortable']
             count = halal_companies.shape[0]
             if count > 0:
                 print(f"There are {count} halal stocks:")
@@ -114,4 +111,4 @@ def query_loop(df):
             else:
                 print("Company not found.")
 
-query_loop(df)
+    

@@ -1,5 +1,3 @@
-### ETHICS.md
-
 # Ethical Considerations
 
 This project was developed with key ethical principles in mind to ensure responsible use of technology, data privacy, and transparency.

@@ -30,6 +30,8 @@ This dataset provides **unique value** for the following reasons:
 - **Valuation Insights**: By incorporating DCF data, users can assess whether a stock is **undervalued**, **overvalued**, or **correctly valued**, providing actionable insights for investment decisions.
 - **Focused Niches**: There are limited datasets available that combine both financial performance and ethical status in one source, making this dataset a valuable tool for investors in Islamic finance or other ethical investment markets.
 
+There are two datasets. One of them is just the basic info about the stocks, and the other one is the basic info + financial data + valuation. The valuation dataset has valuation add the end of the name.
+
 ## Setup and Installation
 
 ### Prerequisites

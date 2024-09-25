@@ -7,7 +7,6 @@ import pandas as pd
 import numpy as np
 import requests
 import os 
-from query import query_loop
 
 api_key = os.getenv("API_KEY")
 
@@ -237,82 +236,25 @@ if halal_only:
 else:
     df.to_csv('stocks_valuation_data.csv', index=False) 
 
+program_end = True
+
 #=== QUERY from Loaded Data ===#
 
-while True:
-    try:
-        query = input("Do you want to ask questions about the data (Y/N): ")
-        if query.lower() == "y":
-            query_loop(df)
-            break
-            print("Program Ended")
-        else:
-            print("Program Ended")
-            break
-    except ValueError:
-        print("Please enter a valid letter.")
-   
-
-
-
-#-----------------------------------------
-
-# # Display the DataFrame (or use df.head() for a preview)
-# print(df)
-# df.to_csv('halal_stocks_data.csv', index=False)
-
-# # Count how many rows have 'Halal Status' equal to "Comfortable"
-# comfortable_count = np.sum(df['Halal Status'] == 'Comfortable')
-
-# # Print the result
-# print(f"Number of rows with Halal Status = 'Comfortable': {comfortable_count}")
-
-
-# print ("PROGRAM ENDED")
-# driver.quit()
-
-#-----------------------------------
-
-# # Extract the stock data
-# stock_rows = driver.find_elements(By.CLASS_NAME, 'odd')
-
-# data = []
-
-# for row in stock_rows[1:]:  # Skipping the first row (header)
-#     columns = row.find_elements(By.CSS_SELECTOR, 'td')
-#     if len(columns) >= 4:
-#         rank = columns[0].text
-#         company_name = columns[1].text
-#         ticker = columns[2].text
-#         comfort_rating = columns[3].text
-#         data.append([rank, company_name, ticker, comfort_rating])
-
-# # Close the browser
-# driver.quit()
-
-# # Convert the data into a pandas DataFrame
-# df = pd.DataFrame(data, columns=["Rank", "Company Name", "Ticker", "Comfort Rating"])
-
-# # Display the data
-# print(df)
-
-# # Save the data to a CSV file
-# df.to_csv('stocks_data.csv', index=False)
-
-
-# for row in table_rows and entries <10:
-#     row_data = []
-#     table_data = row.find_elements(By.TAG_NAME, "td")
-#     for data_cell in table_data:
-#         row_data.append(data_cell.text)
-#     if len(row_data) == 5 & c == 5:  # Make sure row has the expected 4 columns
-#         data.append(row_data[:4])
-#         entries += 1
-
-# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-# time.sleep(10)
-# driver.find_element("xpath","/html/body/div/div[2]/div/div[3]/div[2]/div/ul/li[9]/a").click()  
-# print("NEXT PAGE")
-# time.sleep(5)
-# # Create a pandas DataFrame
-# df = pd.DataFrame(data, columns=["UID", "Company Name", "Ticker", "Halal Status"])
+if program_end:
+    while True:
+        try:
+            query = input("Do you want to ask questions about the data (Y/N): ")
+            if query.lower() == "y":
+                from query import query_loop
+                if halal_only:
+                    query_loop('halal_stocks_valuation_data.csv')
+                else:
+                    query_loop('stocks_valuation_data.csv')
+                break
+                print("Program Ended")
+            else:
+                print("Program Ended")
+                break
+        except ValueError:
+            print("Please enter a valid letter.")
+    program_end = False
